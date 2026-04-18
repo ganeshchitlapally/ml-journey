@@ -39,3 +39,13 @@ print(f"Accuracy: {accuracy_score(y_test, predictions)*100:.1f}%")
 
 print("\n=== CLASSIFICATON REPORT ===")
 print(classification_report(y_test, predictions))
+
+# Step 9 - Feature Importance
+print("\n=== FEATURE IMPORTANCE ===")
+feature_names = ['Pclass','Sex','Age','Fare']
+coefficients = model.coef_[0]
+
+for feature,coef in zip(feature_names, coefficients):
+    print(f"{feature}: {coef:.4f}")
+
+print(model.intercept_)
