@@ -119,6 +119,8 @@ print(classification_report(y_test, dt_predictions))
 # ============================================================
 # STEP 6 - FIX THE DECISION TREE
 # ============================================================
+# Tune the Decision Tree to prevent overfitting
+# Limit depth and require minimum samples for splits
 dt_tuned = DecisionTreeClassifier(max_depth=4, min_samples_split=10, random_state=42)
 dt_tuned.fit(X_train, y_train)
 dt_tuned_predictions = dt_tuned.predict(X_test)
@@ -126,3 +128,4 @@ dt_tuned_predictions = dt_tuned.predict(X_test)
 print("=== TUNED DECISION TREE ===")
 print(f"Accuracy: {accuracy_score(y_test, dt_tuned_predictions) * 100:.1f}%")
 print(classification_report(y_test, dt_tuned_predictions))
+
